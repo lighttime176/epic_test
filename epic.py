@@ -57,7 +57,8 @@ time.sleep(1)
 
 ele = tab.ele('css=#dieselReactWrapper > div > div > div.css-1vplx76 > main > div.css-1dnikhe > div > div > div > div.css-j7qwjs > div:nth-child(4) > div > aside > div > div > div.css-bco1gb > div:nth-child(1) > button')
 ele.click()
-print(ele.text)
+print(ele)
+time.sleep(1)
 with open(r"./test_browser.html", "w", encoding="utf-8") as f:
     f.write(tab.html)
 tab.get_screenshot(path=r"./test_browser_page.png", full_page=False)
