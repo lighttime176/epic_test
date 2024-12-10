@@ -1,6 +1,6 @@
 from DrissionPage import Chromium, ChromiumOptions
 import os
-import requests
+import requests,logging
 import random
 import time
 import ddddocr
