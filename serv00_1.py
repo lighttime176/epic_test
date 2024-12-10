@@ -136,5 +136,6 @@ for i_cishu in range(100):
     elif(ele.text == 'Invalid CAPTCHA'):
         pass
     else:
+        anpush_payload['content'] = ele.text
         response = requests.post(anpush_url, headers=anpush_headers, data=anpush_payload)
         exit()
