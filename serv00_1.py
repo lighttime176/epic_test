@@ -67,7 +67,7 @@ def logging_init():
 logger = logging_init()
 def random_email():
     account = ''
-    randomlength = 15
+    randomlength = 5
     base_str = 'qwertyuioplkjhgfdsazxcvbnm0123456789'
     length = len(base_str) - 1
     for i in range(randomlength):
