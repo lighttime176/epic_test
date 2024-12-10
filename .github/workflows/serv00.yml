@@ -33,7 +33,7 @@ jobs:
         pip install -r requirements.txt
     - name: Run python code
       run: |
-        python serv.py.py
+        python serv00.py.py
       env:
         APP_ID: ${{ secrets.APP_ID }}
         ydyp: ${{ secrets.ydyp }}
