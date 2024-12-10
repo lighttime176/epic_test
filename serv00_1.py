@@ -4,6 +4,15 @@ import requests,logging
 import random
 import time
 import ddddocr
+anpush_url = "https://api.anpush.com/push/125UR66POG8AAOPZLNIV0AK8426OHI"
+anpush_payload = {
+    "title": "your_title",
+    "content": "your_content",
+    "channel": "25526"
+}
+anpush_headers = {
+    "Content-Type": "application/x-www-form-urlencoded"
+}
 def logging_init():
   # 创建一个logger对象
   logger = logging.getLogger('my_logger')
@@ -97,4 +106,5 @@ for _ in range(100):
     elif(ele.text == 'Invalid CAPTCHA'):
         pass
     else:
+        response = requests.post(anpush_url, headers=anpush_headers, data=anpush_payload)
         exit()
