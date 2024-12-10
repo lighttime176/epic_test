@@ -13,6 +13,35 @@ anpush_payload = {
 anpush_headers = {
     "Content-Type": "application/x-www-form-urlencoded"
 }
+firstnames = [
+    "Liam", "Noah", "Oliver", "Elijah", "James", "William", "Benjamin", "Lucas", "Henry", "Alexander",
+    "Mason", "Michael", "Ethan", "Daniel", "Jacob", "Jackson", "Logan", "David", "Joseph", "Samuel",
+    "Sebastian", "Jack", "Aiden", "Matthew", "Wyatt", "John", "Leo", "Isaac", "Gabriel", "Julian",
+    "Owen", "Luke", "Asher", "Carter", "Grayson", "Zachary", "Ryan", "Nathan", "Samuel", "Leo",
+    "Anthony", "Jaxon", "Lincoln", "Joshua", "Christopher", "Andrew", "Theodore", "Caleb", "Christian",
+    "Eli", "Aaron", "Hunter", "Jonathan", "Isaiah", "Charles", "Thomas", "Hudson", "Adrian", "Nolan",
+    "Ezra", "Maverick", "Eli", "Jordan", "Angel", "Roman", "Miles", "Adam", "Ian", "Robert",
+    "David", "Jesse", "Evan", "Bryce", "Cooper", "Miles", "Carson", "Xavier", "Leo", "Avery",
+    "Sawyer", "Gavin", "Colton", "Elliott", "Vincent", "Ezekiel", "Giovanni", "Nico", "Toby", "Daniel",
+    "Archer", "Blake", "Dominic", "Caden", "Dylan", "Milo", "Camden", "Jude", "Caden", "Omar",
+    "Maxwell", "Kingston", "Santiago", "Max", "Seth", "Oscar", "Bennett", "Emmett", "Finn", "Malcolm",
+    "Kingston", "Austin", "Bryan", "Zane", "Kai", "Jaden", "Calvin", "Xander", "Finnley", "Judah"
+]
+lastnames = [
+    "Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson", "Moore", "Taylor",
+    "Anderson", "Thomas", "Jackson", "White", "Harris", "Martin", "Thompson", "Garcia", "Martinez", "Roberts",
+    "Clark", "Rodriguez", "Lewis", "Lee", "Walker", "Hall", "Allen", "Young", "King", "Wright",
+    "Scott", "Torres", "Nguyen", "Hill", "Adams", "Baker", "Gonzalez", "Nelson", "Carter", "Mitchell",
+    "Perez", "Robinson", "Hernandez", "Graham", "Sanchez", "Green", "Stewart", "Morris", "Rivera", "Cook",
+    "Rogers", "Morgan", "Bell", "Murphy", "Bailey", "Cooper", "Richardson", "Cox", "Ward", "Flores",
+    "Alexander", "Hughes", "Washington", "Butler", "Simmons", "Foster", "Bryant", "Vasquez", "James", "Alexander",
+    "Jordan", "Hamilton", "Graham", "Douglas", "Woods", "Coleman", "Stone", "Bennett", "Fisher", "Caldwell",
+    "Curtis", "Snyder", "Dixon", "Howard", "Ramos", "Perez", "Sullivan", "Price", "Bishop", "Gibson",
+    "Berg", "Meyer", "Webb", "Davidson", "Williamson", "Murray", "Ford", "Webster", "Walsh", "Hunter",
+    "Fox", "Harrison", "Chavez", "Chang", "Ng", "Fleming", "Schmidt", "Shaw", "Freeman", "Hansen",
+    "Kim", "Bishop", "Bowers", "Tucker", "Burns", "Henderson", "Curtis", "Larson", "Barnes", "Henry",
+    "Gentry", "Mendez", "Jenkins", "Patel", "Hodges", "Hicks", "Walters", "Lynch", "Harrison", "Arnold"
+]
 def logging_init():
   # 创建一个logger对象
   logger = logging.getLogger('my_logger')
@@ -50,7 +79,7 @@ co.incognito()
 # 用该配置创建页面对象
 browser = Chromium(addr_or_opts=co)
 tab = browser.latest_tab
-for _ in range(100):
+for i_cishu in range(100):
     tab.listen.start(targets='captcha')  # 开始监听，指定获取包含该文本的数据包
     tab.get('https://www.serv00.com/offer/create_new_account')
     res = tab.listen.wait().response
@@ -65,18 +94,18 @@ for _ in range(100):
         logger.info("图片下载并保存成功!")
     else:
         logger.info("下载失败，状态码：", response.status_code)
-    firstname = random_email()
+        firstname = random_email()
     ele = tab.ele('css=#id_first_name')
-    ele.input(firstname)
+    ele.input(firstnames[i_cishu])
 
     firstname = random_email()
     ele = tab.ele('css=#id_last_name')
-    ele.input(firstname)
+    ele.input(lastnames[i_cishu])
 
     firstname = random_email()
     ele = tab.ele('css=#id_username')
-    ele.input(firstname)
-
+    username = lastnames[i_cishu] + firstname
+    ele.input(username)
     ele = tab.ele('css=#id_email')
     ele.input('luo1764682172@gmail.com')
 
