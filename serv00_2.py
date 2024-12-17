@@ -117,11 +117,12 @@ for i_cishu in range(10):
     ele = tab.ele('css=#id_first_name')
     ran = random.randint(2, 97)
     ele.input(firstnames[ran])
-
+    logger.info(firstnames[ran])
     #firstname = random_email()
     ele = tab.ele('css=#id_last_name')
     ran = random.randint(2, 97)
     ele.input(lastnames[ran])
+    logger.info(lastnames[ran])
 
     firstname = random_email()
     ele = tab.ele('css=#id_username')
