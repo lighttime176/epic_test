@@ -30,7 +30,7 @@ headers = {
     'sec-ch-ua-platform': '"Windows"',
 }
 response = requests.get('https://myip.ipip.net/', headers=headers)
-logger.info(response.text)
+
 firstnames = [
     "Liam", "Noah", "Oliver", "Elijah", "James", "William", "Benjamin", "Lucas", "Henry", "Alexander",
     "Mason", "Michael", "Ethan", "Daniel", "Jacob", "Jackson", "Logan", "David", "Joseph", "Samuel",
@@ -83,6 +83,7 @@ def logging_init():
   logger.addHandler(file_handler)
   return logger
 logger = logging_init()
+logger.info(response.text)
 def random_email():
     account = ''
     randomlength = 5
