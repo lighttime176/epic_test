@@ -93,13 +93,15 @@ for i_cishu in range(10):
         logger.info("图片下载并保存成功!")
     else:
         logger.info("下载失败，状态码：", response.status_code)
-    firstname = random_email()
     ele = tab.ele('css=#id_first_name')
-    ele.input(firstnames[i_cishu])
+    ran = random.randint(2, 97)
+    ele.input(firstnames[ran])
+    logger.info(firstnames[ran])
 
-    firstname = random_email()
     ele = tab.ele('css=#id_last_name')
-    ele.input(lastnames[i_cishu])
+    ran = random.randint(2, 97)
+    ele.input(lastnames[ran])
+    logger.info(lastnames[ran])
 
     firstname = random_email()
     ele = tab.ele('css=#id_username')
@@ -107,7 +109,7 @@ for i_cishu in range(10):
     ele.input(username)
 
     ele = tab.ele('css=#id_email')
-    ele.input('oyoovz@gmail.com')
+    ele.input('cornerluossj@gmail.com')
 
     ocr = ddddocr.DdddOcr()
     ocr.set_ranges(2)
@@ -122,7 +124,7 @@ for i_cishu in range(10):
     ele = tab.ele('css=#id_captcha_1')
     #cap = input('输入验证码')
     ele.input(s)
-    ele = tab.ele('css=#id_question2')
+    ele = tab.ele('css=#id_question')
     ele.input('free')
     ele = tab.ele('css=#id_tos')
     ele.click()
