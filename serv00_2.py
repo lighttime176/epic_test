@@ -115,15 +115,17 @@ for i_cishu in range(10):
         logger.info("下载失败，状态码：", response.status_code)
     #firstname = random_email()
     ele = tab.ele('css=#id_first_name')
-    ele.input(firstnames[i_cishu])
+    ran = random.randint(2, 97)
+    ele.input(firstnames[ran])
 
     #firstname = random_email()
     ele = tab.ele('css=#id_last_name')
-    ele.input(lastnames[i_cishu])
+    ran = random.randint(2, 97)
+    ele.input(lastnames[ran])
 
     firstname = random_email()
     ele = tab.ele('css=#id_username')
-    username = lastnames[i_cishu] + firstname
+    username = lastnames[ran] + firstname
     ele.input(username)
 
     ele = tab.ele('css=#id_email')
