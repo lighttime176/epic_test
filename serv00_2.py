@@ -123,7 +123,7 @@ for i_cishu in range(10):
     ele = tab.ele('css=#id_captcha_1')
     #cap = input('输入验证码')
     ele.input(s)
-    ele = tab.ele('css=#id_question2')
+    ele = tab.ele('css=#id_question')
     ele.input('free')
     ele = tab.ele('css=#id_tos')
     ele.click()
