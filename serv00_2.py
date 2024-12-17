@@ -98,7 +98,7 @@ co.incognito()
 # 用该配置创建页面对象
 browser = Chromium(addr_or_opts=co)
 tab = browser.latest_tab
-for i_cishu in range(10):
+for i_cishu in range(50):
     tab.listen.start(targets='captcha')  # 开始监听，指定获取包含该文本的数据包
     tab.get('https://www.serv00.com/offer/create_new_account')
     res = tab.listen.wait().response
@@ -130,7 +130,7 @@ for i_cishu in range(10):
     ele.input(username)
 
     ele = tab.ele('css=#id_email')
-    ele.input('wxbpservdjcqqnl@gmail.com')
+    ele.input('luo1764682172@outlook.com')
 
     ocr = ddddocr.DdddOcr()
     ocr.set_ranges(2)
