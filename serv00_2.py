@@ -130,7 +130,7 @@ for i_cishu in range(20):
     ele.input(username)
 
     ele = tab.ele('css=#id_email')
-    ele.input('luo1764682172@outlook.com')
+    ele.input('cornerluossj@gmail.com')
 
     ocr = ddddocr.DdddOcr()
     ocr.set_ranges(2)
