@@ -79,20 +79,20 @@ co.incognito()
 # 用该配置创建页面对象
 browser = Chromium(addr_or_opts=co)
 tab = browser.latest_tab
-for i_cishu in range(100):
+for i_cishu in range(3):
     tab.get('https://www.serv00.com/offer/create_new_account')
     tab.listen.start(targets='captcha')  # 开始监听，指定获取包含该文本的数据包
     time.sleep(0.5)
     tab.get_screenshot(path=r"./open url.png", full_page=True)
-    for i in range(0,1000):
+    for i in range(0,100):
         try:
             ele = tab.ele('css=body > p:nth-child(4)')
             tab.get('https://www.serv00.com/offer/create_new_account')
             logger.info(ele.text)
             time.sleep(0.5)
             tab.get_screenshot(path=r"./open url.png", full_page=True)
-            if i == 998:
-                sys.exit()
+            if i == 98:
+                exit()
         except:
             break
     time.sleep(2)
