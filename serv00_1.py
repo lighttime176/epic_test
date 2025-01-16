@@ -96,6 +96,7 @@ for i_cishu in range(100):
         except:
             break
     time.sleep(2)
+    tab.get_screenshot(path=r"./open url.png", full_page=True)
     # res = tab.listen.wait().response
     # res = res.url
     # logger.info(res)
