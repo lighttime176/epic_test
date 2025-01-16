@@ -1,5 +1,5 @@
 from DrissionPage import Chromium, ChromiumOptions
-import os
+import os,sys
 import requests,logging
 import random
 import time
@@ -91,10 +91,12 @@ for i_cishu in range(100):
             logger.info(ele.text)
             time.sleep(0.5)
             tab.get_screenshot(path=r"./open url.png", full_page=True)
+            if i == 998:
+                sys.exit()
         except:
             break
     
-    res = tab.listen.wait(timeout = 30).response
+    res = tab.listen.wait().response
     res = res.url
     logger.info(res)
     response = requests.get(res)
