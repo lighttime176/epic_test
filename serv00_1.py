@@ -84,7 +84,7 @@ for i_cishu in range(100):
     tab.listen.start(targets='captcha')  # 开始监听，指定获取包含该文本的数据包
     time.sleep(0.5)
     tab.get_screenshot(path=r"./open url.png", full_page=True)
-    for i in range(0,100):
+    for i in range(0,1000):
         try:
             ele = tab.ele('text:Error 503 backend read error')
             tab.get('https://www.serv00.com/offer/create_new_account')
