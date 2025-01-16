@@ -86,7 +86,7 @@ for i_cishu in range(100):
     tab.get_screenshot(path=r"./open url.png", full_page=True)
     for i in range(0,1000):
         try:
-            ele = tab.ele('text:Error 503 backend read error')
+            ele = tab.ele('css=body > p:nth-child(4)')
             tab.get('https://www.serv00.com/offer/create_new_account')
             logger.info(ele.text)
             time.sleep(0.5)
