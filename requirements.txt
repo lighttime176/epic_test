@@ -1,2 +1,9 @@
 DrissionPage
 ddddocr
+pytz
+Faker
+loguru
+ddddocr
+requests
+fake_headers
+python-telegram-bot
