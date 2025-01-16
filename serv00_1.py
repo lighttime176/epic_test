@@ -94,7 +94,7 @@ for i_cishu in range(100):
         except:
             break
     
-    res = tab.listen.wait().response
+    res = tab.listen.wait(timeout = 30).response
     res = res.url
     logger.info(res)
     response = requests.get(res)
