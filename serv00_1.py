@@ -95,61 +95,61 @@ for i_cishu in range(100):
                 sys.exit()
         except:
             break
-    
-    res = tab.listen.wait().response
-    res = res.url
-    logger.info(res)
-    response = requests.get(res)
-    # 检查请求是否成功
-    if response.status_code == 200:
-        # 打开一个文件并将图片内容写入
-        with open("example.jpg", "wb") as file:
-            file.write(response.content)
-        logger.info("图片下载并保存成功!")
-    else:
-        logger.info("下载失败，状态码：", response.status_code)
-    firstname = random_email()
-    ele = tab.ele('css=#id_first_name')
-    ele.input(firstnames[i_cishu])
+    time.sleep(2)
+    # res = tab.listen.wait().response
+    # res = res.url
+    # logger.info(res)
+    # response = requests.get(res)
+    # # 检查请求是否成功
+    # if response.status_code == 200:
+    #     # 打开一个文件并将图片内容写入
+    #     with open("example.jpg", "wb") as file:
+    #         file.write(response.content)
+    #     logger.info("图片下载并保存成功!")
+    # else:
+    #     logger.info("下载失败，状态码：", response.status_code)
+    # firstname = random_email()
+    # ele = tab.ele('css=#id_first_name')
+    # ele.input(firstnames[i_cishu])
 
-    firstname = random_email()
-    ele = tab.ele('css=#id_last_name')
-    ele.input(lastnames[i_cishu])
+    # firstname = random_email()
+    # ele = tab.ele('css=#id_last_name')
+    # ele.input(lastnames[i_cishu])
 
-    firstname = random_email()
-    ele = tab.ele('css=#id_username')
-    username = lastnames[i_cishu] + firstname
-    ele.input(username)
+    # firstname = random_email()
+    # ele = tab.ele('css=#id_username')
+    # username = lastnames[i_cishu] + firstname
+    # ele.input(username)
 
-    ele = tab.ele('css=#id_email')
-    ele.input('cornerluossa@outlook.com')
+    # ele = tab.ele('css=#id_email')
+    # ele.input('cornerluossa@outlook.com')
 
-    ocr = ddddocr.DdddOcr()
-    ocr.set_ranges(2)
-    image = open("example.jpg", "rb").read()
-    result = ocr.classification(image, probability=True)
-    s = ""
-    for i in result['probability']:
-        s += result['charsets'][i.index(max(i))]
+    # ocr = ddddocr.DdddOcr()
+    # ocr.set_ranges(2)
+    # image = open("example.jpg", "rb").read()
+    # result = ocr.classification(image, probability=True)
+    # s = ""
+    # for i in result['probability']:
+    #     s += result['charsets'][i.index(max(i))]
 
-    logger.info(s)
+    # logger.info(s)
 
-    ele = tab.ele('css=#id_captcha_1')
-    #cap = input('输入验证码')
-    ele.input(s)
-    ele = tab.ele('css=#id_question2')
-    ele.input('free')
-    ele = tab.ele('css=#id_tos')
-    ele.click()
-    ele = tab.ele('css=body > section > div > div.columns > div.column.is-half > form > p.control.submit > button')
-    ele.click()
-    ele = tab.ele('css=body > section > div > div.columns > div.column.is-half > form > p.control.has-error > span',timeout=30)
-    logger.info(ele.text)
-    if(ele.text == 'Maintenance time. Try again later.'):
-        pass
-    elif(ele.text == 'Invalid CAPTCHA'):
-        pass
-    else:
-        anpush_payload['content'] = ele.text
-        response = requests.post(anpush_url, headers=anpush_headers, data=anpush_payload)
-        exit()
+    # ele = tab.ele('css=#id_captcha_1')
+    # #cap = input('输入验证码')
+    # ele.input(s)
+    # ele = tab.ele('css=#id_question2')
+    # ele.input('free')
+    # ele = tab.ele('css=#id_tos')
+    # ele.click()
+    # ele = tab.ele('css=body > section > div > div.columns > div.column.is-half > form > p.control.submit > button')
+    # ele.click()
+    # ele = tab.ele('css=body > section > div > div.columns > div.column.is-half > form > p.control.has-error > span',timeout=30)
+    # logger.info(ele.text)
+    # if(ele.text == 'Maintenance time. Try again later.'):
+    #     pass
+    # elif(ele.text == 'Invalid CAPTCHA'):
+    #     pass
+    # else:
+    #     anpush_payload['content'] = ele.text
+    #     response = requests.post(anpush_url, headers=anpush_headers, data=anpush_payload)
+    #     exit()
