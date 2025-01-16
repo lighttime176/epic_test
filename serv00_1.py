@@ -80,8 +80,18 @@ co.incognito()
 browser = Chromium(addr_or_opts=co)
 tab = browser.latest_tab
 for i_cishu in range(100):
-    tab.listen.start(targets='captcha')  # 开始监听，指定获取包含该文本的数据包
     tab.get('https://www.serv00.com/offer/create_new_account')
+    time.sleep(0.5)
+    tab.get_screenshot(path=r"./open url.png", full_page=True)
+    for i in range(0,100):
+        try:
+            ele = tab.ele('text:Error 503 backend read error')
+            tab.get('https://www.serv00.com/offer/create_new_account')
+            time.sleep(0.5)
+            tab.get_screenshot(path=r"./open url.png", full_page=True)
+        except:
+            break
+    tab.listen.start(targets='captcha')  # 开始监听，指定获取包含该文本的数据包
     res = tab.listen.wait().response
     res = res.url
     logger.info(res)
